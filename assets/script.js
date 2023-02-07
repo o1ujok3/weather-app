@@ -7,7 +7,7 @@ var city = "London";
 var baseURL = "https://api.openweathermap.org/data/2.5/";
 var currentURL = baseURL + `weather?appid=${apiKey}&units=metric&`;
 var forecastURL = baseURL + `forecast?appid=${apiKey}&units=metric&`;
-// var iconURL = "https://openweathermap.org/img/w/"; - Displays icon images
+var iconURL = "https://openweathermap.org/img/w/";
 
 function inputSubmitted(cityName) {
   $.get(currentURL + `q=${cityName}`).then(function (currentData) {
@@ -19,7 +19,7 @@ function inputSubmitted(cityName) {
     Wind: ${currentData.wind.speed}
     IconURL: ${iconURL + currentData.weather[0].icon}.png
     `);
-    //Function getting 5-day forecast data
+
     $.get(
       forecastURL + `lat=${currentData.coord.lat}&lon=${currentData.coord.lon}`
     ).then(function (forecastData) {
@@ -34,6 +34,45 @@ function inputSubmitted(cityName) {
 // Function to return icon image for weather
 function outputImg(data) {
   return `<img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="${data.weather[0].description}"></img>`;
+}
+
+// Function for getting 5 day forecast data
+function getForecastWeather(lon, lat) {
+  $.get(forecastURL + `lat=${lat}&lon=${lon}`).then(function (data) {
+    $("#forecast").removeClass("invisible");
+
+    var count = 1;
+
+    var cardContainer = $(".card-container");
+
+    cardContainer.html("");
+
+    var forecastArr = data.list;
+
+    for (var index in forecastArr) {
+      var dateTxt = forecastArr[index].dt_txt;
+
+      var isNoon = dateTxt.includes("12:");
+
+      if (isNoon) {
+        var futureDate = moment().add(count, "days").format("DD/MM/YYYY");
+
+        var currentItem = forecastArr[index];
+
+        cardContainer.append(`
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="mt-1 h5">${futureDate}</h5>
+                  ${outputImg(currentItem)}
+                  ${populateEls(currentItem)}
+                </div>
+              </div>
+              `);
+
+        count++;
+      }
+    }
+  });
 }
 
 /*
