@@ -30,15 +30,21 @@ Font awesome (https://fontawesome.com/): Version 4.7.0
 
 ## Usage
 
-Access Weather Dashboard Application here:
+Access Weather Dashboard Application here: [(https://o1ujok3.github.io/weather-app/)]
 
-In order to commence the weather search enter a city in the input below 'Search for a city:' and click 'Search'
+In order to commence the weather search, enter a city in the input area titled 'Search for a city:' and then click 'Search'
 
 #### Screenshot of landing page for weather dashboard
 
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for London.](./assets/10-server-side-apis-challenge-demo.png)
+![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for London.](./assets/Screenshot%202023-02-10%20at%2010.25.57.png)
 
-The city name is used to fetch data from the OpenWeatherMap API. Relevant parts of the data retrieved are displayed to show current weather and 5 day forecast which represented the weather at noon on each day. The search is saved into local storage and when the user re-enters the site buttons in the aside on the left update with all recent searches. The user can click these buttons to generate a search. Screenshot of search results
+- The city name is used to fetch data from the OpenWeatherMap API
+- Key data retrieved are displayed on the dashboard. The search is saved unto local storage and can be seen when the user re-enters the site on the left-side of the screen which displays all recent searches.
+- The user can click these buttons to generate a repeat search.
+
+#### Screenshot of search results
+
+![Alt](./assets/Screenshot%202023-02-10%20at%2010.29.02.png)
 
 ## Credits
 
