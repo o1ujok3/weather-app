@@ -30,7 +30,7 @@ Font awesome (https://fontawesome.com/): Version 4.7.0
 
 ## Usage
 
-Access Weather Dashboard Application here: [(https://o1ujok3.github.io/weather-app/)]
+![Access Weather Dashboard Application here:] [(https://o1ujok3.github.io/weather-app/)]
 
 In order to commence the weather search, enter a city in the input area titled 'Search for a city:' and then click 'Search'
 
